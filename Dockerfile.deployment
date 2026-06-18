@@ -40,4 +40,8 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 EXPOSE 80
 
 # 起動
-CMD ["apache2-foreground"]
+# ❌ 修正前（一番最後の行）
+# CMD ["apache2-foreground"]
+
+# ⭕️ 修正後（ここを書き換えます。起動直前にキャッシュをクリアしてApacheを立ち上げる設定）
+CMD ["sh", "-c", "php artisan config:clear && php artisan cache:clear && apache2-foreground"]
