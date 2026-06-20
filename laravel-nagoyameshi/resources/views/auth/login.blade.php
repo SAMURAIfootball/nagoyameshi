@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container py-4 nagoyameshi-container">
+ <div style="background-color: #ff0000; color: white; text-align: center; padding: 15px; font-weight: bold; font-size: 20px;">
+        【検証環境】デプロイテスト成功
+    </div>
+<div class="container py-4 nagoyameshi-container">
         <div class="row justify-content-center">
             <div class="col-xl-3 col-lg-4 col-md-5 col-sm-7">
                 <h1 class="mb-4 text-center">ログイン</h1>
