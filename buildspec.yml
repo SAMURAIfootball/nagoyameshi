@@ -22,16 +22,16 @@ phases:
       - echo "[POST_BUILD] Pushing image to ECR..."
       - docker push ${REPOSITORY_URI}:latest
 
-       # マイグレーションを強制初期化（fresh）して実行
-      # --overrides を使い、既存の admins テーブルを削除して作り直します
-      - echo "[POST_BUILD] Running Laravel migration (FRESH) via ECS RunTask..."
+      # マイグレーション専用タスクを ECS RunTask で実行
+      # MIGRATION_TASK_DEFINITION: マイグレーション専用の ECS タスク定義名を設定すること
+      # ECS_CLUSTER_NAME / SUBNET_ID_1 / SUBNET_ID_2 / SECURITY_GROUP_ID: CodeBuild の環境変数で設定すること
+      - echo "[POST_BUILD] Running Laravel migration via ECS RunTask..."
       - |
         aws ecs run-task \
           --cluster ${ECS_CLUSTER_NAME} \
           --launch-type FARGATE \
           --task-definition ${MIGRATION_TASK_DEFINITION} \
-          --network-configuration "awsvpcConfiguration={subnets=[${SUBNET_ID_1},${SUBNET_ID_2}],securityGroups=[${SECURITY_GROUP_ID}],assignPublicIp=DISABLED}" \
-          --overrides "{\"containerOverrides\": [{\"name\": \"${CONTAINER_NAME}\", \"command\": [\"php\", \"artisan\", \"migrate:fresh\", \"--force\"]}]}" \
+          --network-configuration "awsvpcConfiguration={subnets=[${SUBNET_ID_1},${SUBNET_ID_2}],securityGroups=[${SECURITY_GROUP_ID}],assignPublicIp=ENABLED}" \
           --region ap-northeast-1
 
       # ECSデプロイ用のイメージ定義ファイルを生成
