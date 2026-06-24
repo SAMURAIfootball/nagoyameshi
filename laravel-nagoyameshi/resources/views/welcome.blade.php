@@ -5,7 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- 修正後：この通りに書き換えて保存してください -->
+ test-fix-welcome
 　　　　　<title>Laravel【NAGOYAMESHI検証環境成功】</title>
+
+　　　　　<title>Laravel【検証環境大成功】</title>
+ dev
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,6 +22,7 @@
     </head>
    
     <body class="antialiased">
+ test-fix-welcome
         <!-- 画面の最前面に巨大な文字を強制表示するパーツ -->
         <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; bg-color: white; background: white; z-index: 999999; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
             <h1 style="color: #ff4a4a; font-size: 50px; font-weight: bold; margin-bottom: 20px; font-family: sans-serif;">
@@ -29,6 +34,18 @@
         </div>
         
           <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+
+    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: white; z-index: 999999; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <h1 style="color: #ff4a4a; font-size: 50px; font-weight: bold; margin-bottom: 20px; font-family: sans-serif;">
+            🎉 【NAGOYAMESHI検証環境成功】 🎉
+        </h1>
+        <p style="color: #333; font-size: 20px; font-family: sans-serif;">
+            この画面が表示されていれば、devブランチからの自動デプロイは完全に大成功しています。
+        </p>
+    </div>
+
+        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+ dev
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
