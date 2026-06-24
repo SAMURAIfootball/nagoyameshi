@@ -13,7 +13,7 @@ phases:
       # Dockerfile.deployment を使用して Docker イメージをビルド
       # CONTAINER_NAME: CodeBuild の環境変数で設定すること
       - echo "[BUILD] Building Laravel Docker image..."
-      - docker build --no-cache -f Dockerfile.deployment -t ${CONTAINER_NAME} ${LARAVEL_DIR} 
+      - docker build --no-cache -f Dockerfile.deployment -t ${CONTAINER_NAME} .
       - docker tag ${CONTAINER_NAME} ${REPOSITORY_URI}:latest
 
   post_build:
