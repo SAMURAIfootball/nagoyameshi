@@ -7,7 +7,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
- test-fix-welcome
     <title>検証環境NAGOYAMESHI</title>
 
     <title>NAGOYAMESHI検証環境</title>
